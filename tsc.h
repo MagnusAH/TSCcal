@@ -17,13 +17,13 @@ void _tsc_calibrate(uint64_t warmup_count, uint64_t sample_count, uint64_t sampl
 // read time stamp counter
 inline uint64_t rdtsc() {
 	uint64_t rax, rdx;
-	__asm__("rdtsc" : "=a" (rax), "=d" (rdx) :: );
+	__asm__ volatile("rdtsc" : "=a" (rax), "=d" (rdx) :: );
 	return (rdx << 32) | rax;
 }
 
 // pipeline flush
 inline void lfence() {
-	__asm__("lfence" ::: );
+	__asm__ volatile("lfence" ::: );
 }
 
 inline uint64_t tsc_toNano(uint64_t ticks) {

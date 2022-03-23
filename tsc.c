@@ -36,8 +36,6 @@ void tsc_calibrate()
 	_tsc_calibrate(TSC_DEFAULT_WARMUP_COUNT, TSC_DEFAULT_SAMPLE_COUNT, TSC_DEFAULT_SAMPLE_DURATION, TSC_DEFAULT_DEVIATION);
 }
 
-#include <stdio.h>
-
 void _tsc_calibrate(uint64_t warmup_count, uint64_t sample_count, uint64_t sample_duration, uint64_t deviation)
 {
 	uint64_t samples[sample_count + warmup_count];
